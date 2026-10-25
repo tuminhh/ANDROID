@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword   # Mật khẩu root của MySQL
+      MYSQL_DATABASE: attendance_db       # Tên database sẽ tự động tạo
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"                         # Cổng để truy cập phpMyAdmin (quản lý DB)
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+
+  api:
+    build: .                              # Build image từ Dockerfile
+    ports:
+      - "80:80"                           # Cổng truy cập API từ Android (10.0.2.2:80)
+    volumes:
+      - ./src:/var/www/html               # Map thư mục src vào web server
+    depends_on:
+      - db
+
+volumes:
+  db_data:
