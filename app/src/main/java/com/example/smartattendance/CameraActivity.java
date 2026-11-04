@@ -16,6 +16,19 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import java.io.File;
+import androidx.camera.core.ImageCaptureException;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import com.example.smartattendance.api.ApiClient;
+import com.example.smartattendance.api.ApiService;
+import com.google.gson.JsonObject;
+
+import com.example.smartattendance.api.ApiService;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -84,11 +97,73 @@ public class CameraActivity extends AppCompatActivity {
     private void takePhoto() {
         if (imageCapture == null) return;
 
-        Toast.makeText(this, "Đang chụp và chuẩn bị gửi lên Server...", Toast.LENGTH_SHORT).show();
-        // Todo: Chụp ảnh, crop khuôn mặt và gọi API gửi lên Server bằng Retrofit.
+        btnCapture.setEnabled(false);
+        btnCapture.setText("Đang xử lý...");
+
+        // 1. Tạo một file tạm thời trong bộ nhớ của ứng dụng để lưu ảnh
+        File photoFile = new File(getExternalFilesDir(null), "face_attendance.jpg");
+        ImageCapture.OutputFileOptions outputOptions = new ImageCapture.OutputFileOptions.Builder(photoFile).build();
+
+        // 2. Lệnh chụp ảnh của CameraX
+        imageCapture.takePicture(outputOptions, ContextCompat.getMainExecutor(this), new ImageCapture.OnImageSavedCallback() {
+            @Override
+            public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
+                Toast.makeText(CameraActivity.this, "Chụp thành công, đang gửi lên Server...", Toast.LENGTH_SHORT).show();
+                // 3. Chụp xong thì gọi hàm Upload
+                uploadImageToServer(photoFile);
+            }
+
+            @Override
+            public void onError(@NonNull ImageCaptureException exception) {
+                Log.e("CameraX", "Lỗi chụp ảnh: " + exception.getMessage(), exception);
+                btnCapture.setEnabled(true);
+                btnCapture.setText("Chụp ảnh khuôn mặt");
+            }
+        });
     }
 
-    // --- Các hàm hỗ trợ kiểm tra quyền ---
+    private void uploadImageToServer(File file) {
+        // Đóng gói file ảnh
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
+
+        // Kèm theo thông tin người dùng (Ở đây ta tạm hardcode gửi username "SV001", sau này sẽ lấy từ Intent)
+        RequestBody username = RequestBody.create(MediaType.parse("text/plain"), "SV001");
+
+        // Gọi API
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        Call<JsonObject> call = apiService.uploadFace(body, username);
+
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                btnCapture.setEnabled(true);
+                btnCapture.setText("Chụp ảnh khuôn mặt");
+
+                if (response.isSuccessful() && response.body() != null) {
+                    String status = response.body().get("status").getAsString();
+                    String message = response.body().get("message").getAsString();
+
+                    if (status.equals("success")) {
+                        Toast.makeText(CameraActivity.this, message, Toast.LENGTH_LONG).show();
+                        finish();
+                    } else {
+                        Toast.makeText(CameraActivity.this, message, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                btnCapture.setEnabled(true);
+                btnCapture.setText("Chụp ảnh khuôn mặt");
+                Toast.makeText(CameraActivity.this, "Lỗi mạng khi tải ảnh lên", Toast.LENGTH_SHORT).show();
+                Log.e("API_ERROR", t.getMessage());
+            }
+        });
+    }
+
+
     private boolean allPermissionsGranted() {
         for (String permission : REQUIRED_PERMISSIONS) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {

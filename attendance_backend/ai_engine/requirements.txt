@@ -1,0 +1,6 @@
+Flask==2.2.2
+deepface==0.0.79
+opencv-python-headless==4.6.0.66
+Werkzeug==2.2.2
+tensorflow==2.15.0
+tf-keras==2.15.0
