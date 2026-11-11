@@ -74,17 +74,3 @@ Sai khuôn mặt trả HTTP 200 với `matched: false` và `attemptsLeft` (khôn
 ## Cấu trúc mã
 `web/` controller và DTO · `service/` nghiệp vụ · `domain/` + `repo/` JPA · `security/` JWT · `util/` toán vector, GPS, CSV ·
 `src/test` kiểm thử tích hợp toàn bộ luồng (MockMvc + H2).
-
-## Hạn chế cần biết trước khi triển khai thật
-1. **Vector khuôn mặt và chớp mắt do app tính.** Máy chủ tin vào app: một app bị sửa có thể bỏ qua kiểm tra chớp mắt,
-   hoặc gửi lại vector bị chặn bắt. Bắt buộc dùng HTTPS; muốn chắc hơn thì chuyển việc trích vector và liveness lên máy chủ.
-2. **Chưa có lớp học phần.** Sinh viên nào cũng điểm danh được mọi buổi đang mở. Bước tiếp theo: bảng `courses`, `enrollments`
-   và chỉ cho sinh viên có tên trong lớp điểm danh.
-3. **Dữ liệu sinh trắc học** cần màn hình xin đồng ý, mã hóa đĩa/CSDL, chính sách lưu trữ và xóa khi sinh viên thôi học.
-4. Khóa đăng nhập lưu trong bộ nhớ, mất khi khởi động lại và không dùng chung giữa nhiều máy chủ.
-5. `ddl-auto: update` chỉ để khởi động nhanh; khi vận hành nên dùng Flyway/Liquibase.
-6. Bản Spring Boot trong `pom.xml` là 3.5.0; hãy nâng lên bản vá 3.5.x mới nhất.
-
-## Lưu ý khi nâng cấp từ bản chưa có lớp học phần
-Bảng `attendance_session` có thêm cột `class_id`. Nếu bạn đã chạy bản cũ với H2 dev, hãy xóa thư mục `./data` để tạo lại cơ sở dữ liệu
-(dữ liệu thử sẽ mất). Với PostgreSQL thật cần tự viết migration; dự án chưa dùng Flyway/Liquibase.
