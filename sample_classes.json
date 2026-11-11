@@ -1,0 +1,14 @@
+[
+  {
+    "code": "INT101",
+    "name": "Nhập môn công nghệ thông tin",
+    "semester": "HK1 2026-2027",
+    "dayOfWeek": 2,
+    "shift": "Buổi sáng - 1,2,3",
+    "room": "101 - A1",
+    "studentIds": [
+      "B21DCCN001",
+      "B21DCCN002"
+    ]
+  }
+]

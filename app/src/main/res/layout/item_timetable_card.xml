@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_schedule_card"
+    android:elevation="2dp"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- Dải màu xanh định danh dọc bên trái -->
+    <View
+        android:id="@+id/accentBar"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/bg_accent_bar" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Ca học / Tiết (ví dụ: Buổi sáng - 4,5,6) -->
+        <TextView
+            android:id="@+id/shiftView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brand_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Tên môn học -->
+        <TextView
+            android:id="@+id/subjectNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Giảng viên & Số điện thoại / Khoa -->
+        <TextView
+            android:id="@+id/lecturerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <!-- Phòng học & Cơ sở -->
+        <TextView
+            android:id="@+id/roomView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#334155"
+            android:textSize="13sp" />
+
+        <!-- Ghi chú nếu có -->
+        <TextView
+            android:id="@+id/noteView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

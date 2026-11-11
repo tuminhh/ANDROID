@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+app:
+  jwt:
+    secret: test-secret-test-secret-test-secret-123456
+  teacher-invite-code: TEST-INVITE
+  login:
+    max-failures: 3
+    lock-minutes: 10

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bảng màu chủ đạo theo phong cách ứng dụng đại học hiện đại -->
+    <color name="brand_primary">#0F60B6</color>
+    <color name="brand_primary_dark">#0A4380</color>
+    <color name="brand_primary_light">#EAF2FA</color>
+    <color name="brand_primary_lighter">#F1F7FD</color>
+    
+    <color name="brand_secondary">#0284C7</color>
+    <color name="brand_accent">#F97316</color>
+    <color name="brand_accent_light">#FFEDD5</color>
+    
+    <!-- Màu nền và thẻ -->
+    <color name="canvas_bg">#F8FAFC</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_border">#E2E8F0</color>
+    <color name="divider_color">#EEF2F6</color>
+    
+    <!-- Màu chữ -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- Màu trạng thái -->
+    <color name="status_present">#10B981</color>
+    <color name="status_present_light">#D1FAE5</color>
+    <color name="status_absent">#EF4444</color>
+    <color name="status_absent_light">#FEE2E2</color>
+    <color name="status_warning">#F59E0B</color>
+    
+    <!-- AI badge -->
+    <color name="ai_gradient_start">#6366F1</color>
+    <color name="ai_gradient_end">#0F60B6</color>
+</resources>

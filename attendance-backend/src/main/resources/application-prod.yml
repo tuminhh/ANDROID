@@ -1,0 +1,10 @@
+# Môi trường thật: toàn bộ bí mật lấy từ biến môi trường, không có giá trị mặc định.
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      # Tạm dùng update cho gọn; khi vận hành thật nên chuyển sang Flyway/Liquibase + validate.
+      ddl-auto: update

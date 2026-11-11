@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: smart-attendance
+  profiles:
+    default: dev
+  jpa:
+    open-in-view: false
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+
+app:
+  jwt:
+    # Bắt buộc >= 32 ký tự. Ở môi trường thật đặt qua biến môi trường JWT_SECRET.
+    secret: ${JWT_SECRET:}
+    expiration-hours: 12
+  # Mã mời để đăng ký vai trò giảng viên. Để trống = tắt đăng ký giảng viên.
+  teacher-invite-code: ${TEACHER_INVITE_CODE:}
+  face:
+    threshold: 0.70        # ngưỡng cosine chấp nhận cùng một người
+    dimension: 192         # số chiều vector của MobileFaceNet
+    max-failed-attempts: 5 # số lần sai tối đa của một sinh viên trong một buổi
+  session:
+    default-minutes: 15
+    max-minutes: 240
+  login:
+    max-failures: 5
+    lock-minutes: 10
+  gemini:
+    api-key: ${GEMINI_API_KEY:}
+    model: ${GEMINI_MODEL:gemini-3.8-flash}

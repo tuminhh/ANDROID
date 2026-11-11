@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CHỈ cho bản debug (thư mục src/debug, không vào bản release): cho phép HTTP thường để nối với backend
+     chạy trên máy dev, dù là máy ảo (10.0.2.2) hay điện thoại thật qua IP LAN (ví dụ 192.168.0.104).
+     Bản release dùng cấu hình trong src/main và bắt buộc HTTPS. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

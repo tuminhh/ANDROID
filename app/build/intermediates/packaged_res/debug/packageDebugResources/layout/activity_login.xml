@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/canvas_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Logo & Branding -->
+        <FrameLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_circle_icon">
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_camera_face" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Điểm danh thông minh"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp"
+            android:text="Quản lý thời khóa biểu &amp; điểm danh khuôn mặt"
+            android:textColor="@color/text_secondary"
+            android:textSize="13.5sp" />
+
+        <!-- Card Form Đăng nhập & Đăng ký -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_rounded"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Thanh Tab Bar: Đăng nhập | Đăng ký -->
+            <LinearLayout
+                android:id="@+id/tabBarContainer"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_tab_bar"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/tabLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tab_item_selected"
+                    android:gravity="center"
+                    android:text="Đăng nhập"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="14.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tabRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tab_item_unselected"
+                    android:gravity="center"
+                    android:text="Đăng ký"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14.5sp" />
+            </LinearLayout>
+
+            <!-- Phần chọn vai trò (Chỉ hiển thị khi Đăng ký) -->
+            <LinearLayout
+                android:id="@+id/layoutRoleSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Bạn là:"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioStudent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Sinh viên"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioTeacher"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Giảng viên"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Ô nhập Họ và tên (Chỉ hiển thị khi Đăng ký) -->
+            <LinearLayout
+                android:id="@+id/layoutNameSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Họ và tên"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12.5sp" />
+
+                <EditText
+                    android:id="@+id/nameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_input_field"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Ô nhập Mã định danh (Hiển thị ở cả Đăng nhập & Đăng ký) -->
+            <TextView
+                android:id="@+id/lblId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Mã sinh viên / giảng viên"
+                android:textColor="@color/text_secondary"
+                android:textSize="12.5sp" />
+
+            <EditText
+                android:id="@+id/idInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Nhập mã SV/GV"
+                android:inputType="text"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <!-- Ô nhập Mật khẩu (Hiển thị ở cả Đăng nhập & Đăng ký) -->
+            <TextView
+                android:id="@+id/lblPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Mật khẩu"
+                android:textColor="@color/text_secondary"
+                android:textSize="12.5sp" />
+
+            <EditText
+                android:id="@+id/passInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Nhập mật khẩu"
+                android:inputType="textPassword"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <!-- Mã mời giảng viên (Chỉ hiển thị khi Đăng ký Giảng viên) -->
+            <LinearLayout
+                android:id="@+id/layoutInviteSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Mã mời dành cho giảng viên"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12.5sp" />
+
+                <EditText
+                    android:id="@+id/inviteInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Nhập mã mời được cấp cho GV"
+                    android:inputType="text"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Nút hành động chính (Đăng nhập / Đăng ký) -->
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Đăng nhập"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Chuyển đổi nhanh qua văn bản -->
+            <TextView
+                android:id="@+id/txtSwitchMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:text="Chưa có tài khoản? Đăng ký ngay"
+                android:textColor="@color/brand_primary"
+                android:textSize="13.5sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

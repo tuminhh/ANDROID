@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Tên buổi điểm danh"
+        android:textColor="@color/text_secondary"
+        android:textSize="12.5sp" />
+
+    <EditText
+        android:id="@+id/titleInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_input_field"
+        android:hint="Ví dụ: Đảm bảo chất lượng phần mềm - Buổi 1"
+        android:inputType="text"
+        android:maxLength="200"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Thời lượng mở điểm danh (phút)"
+        android:textColor="@color/text_secondary"
+        android:textSize="12.5sp" />
+
+    <EditText
+        android:id="@+id/minutesInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_input_field"
+        android:hint="Thời lượng mở (phút)"
+        android:inputType="number"
+        android:maxLength="3"
+        android:text="15"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/locationCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Giới hạn vị trí GPS (bán kính 100m)"
+        android:textColor="@color/text_primary"
+        android:textSize="13.5sp" />
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập lớp học phần bằng JSON"
+        android:textColor="@color/text_primary"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Dán danh sách lớp học kèm ca học, phòng học và mã sinh viên:"
+        android:textColor="@color/text_secondary"
+        android:textSize="12.5sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLoadSample"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_button_outlined"
+            android:text="Tải JSON mẫu"
+            android:textAllCaps="false"
+            android:textColor="@color/brand_primary"
+            android:textSize="12.5sp" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_button_outlined"
+            android:text="Xóa trắng"
+            android:textAllCaps="false"
+            android:textColor="@color/text_secondary"
+            android:textSize="12.5sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/jsonInput"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_input_field"
+        android:fontFamily="monospace"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:textColor="@color/text_primary"
+        android:textSize="12sp" />
+
+</LinearLayout>

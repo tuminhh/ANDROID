@@ -1,0 +1,146 @@
+### Dùng với VS Code (REST Client) hoặc IntelliJ HTTP Client.
+### Chạy backend ở chế độ dev: mã mời giảng viên mặc định là GIANGVIEN-DEV
+
+@host = http://localhost:8080
+
+### 1. Đăng ký giảng viên
+# @name teacher
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{ "userId": "GV001", "name": "Nguyễn Văn A", "password": "MatKhau123", "role": "TEACHER", "inviteCode": "GIANGVIEN-DEV" }
+
+### 2. Đăng ký sinh viên
+# @name student
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{ "userId": "SV001", "name": "Trần Thị B", "password": "MatKhau123", "role": "STUDENT" }
+
+### 2b. Giảng viên tạo lớp học phần (trả id lớp, giả sử là 1)
+POST {{host}}/api/classes
+Authorization: Bearer {{teacher.response.body.token}}
+Content-Type: application/json
+
+{ "code": "JAVA101", "name": "Lập trình Java", "semester": "HK1 2026-2027" }
+
+### 2b-2. Giảng viên nhập hàng loạt lớp học phần kèm lịch TKB & danh sách sinh viên bằng JSON
+POST {{host}}/api/classes/import-json
+Authorization: Bearer {{teacher.response.body.token}}
+Content-Type: application/json
+
+[
+  {
+    "code": "SQA401",
+    "name": "Đảm bảo chất lượng phần mềm",
+    "semester": "HK1 2026-2027",
+    "dayOfWeek": 2,
+    "shift": "Buổi sáng - 4,5,6",
+    "room": "402 - A9 - Cơ sở 1 - Khu A",
+    "studentIds": ["SV001"]
+  },
+  {
+    "code": "AUT302",
+    "name": "Thực hành kiểm thử phần mềm",
+    "semester": "HK1 2026-2027",
+    "dayOfWeek": 7,
+    "shift": "Buổi sáng - 1,2,3",
+    "room": "305 - A9 - Cơ sở 1 - Khu A",
+    "studentIds": ["SV001"]
+  }
+]
+
+### 2c. Thêm danh sách sinh viên vào lớp (sinh viên phải đã đăng ký tài khoản)
+POST {{host}}/api/classes/1/students
+Authorization: Bearer {{teacher.response.body.token}}
+Content-Type: application/json
+
+{ "studentIds": ["SV001", "SV002"] }
+
+### 2d. Xem lớp, báo cáo chuyên cần, xuất CSV
+GET {{host}}/api/classes/1
+Authorization: Bearer {{teacher.response.body.token}}
+
+###
+GET {{host}}/api/classes/1/report
+Authorization: Bearer {{teacher.response.body.token}}
+
+###
+GET {{host}}/api/classes/1/export
+Authorization: Bearer {{teacher.response.body.token}}
+
+### 3. Giảng viên mở buổi điểm danh 15 phút cho lớp 1 (vị trí là tùy chọn)
+POST {{host}}/api/sessions
+Authorization: Bearer {{teacher.response.body.token}}
+Content-Type: application/json
+
+{ "classId": 1, "title": "Lập trình Java - Buổi 5", "durationMinutes": 15 }
+
+### 4. Sinh viên xem các buổi đang mở
+GET {{host}}/api/sessions/active
+Authorization: Bearer {{student.response.body.token}}
+
+### 5. Giảng viên xem danh sách có mặt của buổi 1
+GET {{host}}/api/sessions/1/records
+Authorization: Bearer {{teacher.response.body.token}}
+
+### 6. Xuất CSV
+GET {{host}}/api/sessions/1/export
+Authorization: Bearer {{teacher.response.body.token}}
+
+### 6b. Xuất Excel (.xlsx)
+GET {{host}}/api/sessions/1/export.xlsx
+Authorization: Bearer {{teacher.response.body.token}}
+
+###
+GET {{host}}/api/classes/1/export.xlsx
+Authorization: Bearer {{teacher.response.body.token}}
+
+### 7. Đóng buổi
+POST {{host}}/api/sessions/1/close
+Authorization: Bearer {{teacher.response.body.token}}
+
+### 8. Lấy thời khóa biểu của tôi
+GET {{host}}/api/timetable/my
+Authorization: Bearer {{student.response.body.token}}
+
+### 9. Nhập thời khóa biểu bằng JSON
+POST {{host}}/api/timetable/import-json
+Authorization: Bearer {{student.response.body.token}}
+Content-Type: application/json
+
+[
+  {
+    "dayOfWeek": 2,
+    "date": "09/11",
+    "shift": "Buổi sáng - 4,5,6",
+    "subjectName": "Đảm bảo chất lượng phần mềm",
+    "subjectCode": "SQA401",
+    "lecturer": "Vũ Đình Minh (0912327850 - CNTT&TT)",
+    "room": "402 - A9 - Cơ sở 1 - Khu A",
+    "note": "Tuần 9 đến 15"
+  },
+  {
+    "dayOfWeek": 7,
+    "date": "14/11",
+    "shift": "Buổi sáng - 1,2,3",
+    "subjectName": "Thực hành kiểm thử phần mềm",
+    "subjectCode": "SQA402_TH",
+    "lecturer": "Nguyễn Hoàng Nam",
+    "room": "305 - A9 - Cơ sở 1 - Khu A",
+    "note": "Phòng máy"
+  }
+]
+
+### 10. Quét thời khóa biểu bằng Gemini AI Vision (Base64 ảnh)
+POST {{host}}/api/timetable/scan-gemini
+Authorization: Bearer {{student.response.body.token}}
+Content-Type: application/json
+
+{
+  "imageBase64": "..."
+}
+
+### Ghi chú: đăng ký mặt (PUT /api/face) và điểm danh (POST /api/attendance) cần mảng
+### "embedding" gồm 192 số thực do app Android tính ra, nên thử bằng test tự động
+### (AttendanceFlowTest) hoặc từ chính app.

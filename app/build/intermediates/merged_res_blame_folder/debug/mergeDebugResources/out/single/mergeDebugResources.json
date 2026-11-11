@@ -1,0 +1,194 @@
+[
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_list.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_chevron_right.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_chevron_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_clock.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_clock.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_dialog_add_students.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\dialog_add_students.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_pill_unselected.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_pill_unselected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_input_field.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_input_field.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-5:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_shape_dot_white.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\shape_dot_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_accent_bar.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_accent_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_dialog_gemini_scan.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\dialog_gemini_scan.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_pill_selected.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_pill_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_history.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_item_timetable_card.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\item_timetable_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_circle_avatar.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_circle_avatar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_dialog_import_timetable_json.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\dialog_import_timetable_json.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_class_detail.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_class_detail.xml"
+    },
+    {
+        "merged": "com.uni.attendance.app-debug-4:/layout_item_timetable_card.xml.flat",
+        "source": "com.uni.attendance.app-main-6:/layout/item_timetable_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_tab_item_selected.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_tab_item_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_dialog_create_class.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\dialog_create_class.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_shape_dot_orange.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\shape_dot_orange.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_location.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_camera_face.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_camera_face.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_arrow_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_timetable.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_timetable.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_chevron_left.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_chevron_left.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_chip_blue.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_chip_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_notifications.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_button_outlined.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_button_outlined.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_sparkles.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_sparkles.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_calendar.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_class_list.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_class_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_person.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_person.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_face.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_face.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_code_json.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_code_json.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_ic_class.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\ic_class.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_schedule_card.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_schedule_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_circle_icon.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_circle_icon.xml"
+    },
+    {
+        "merged": "com.uni.attendance.app-debug-4:/layout_activity_login.xml.flat",
+        "source": "com.uni.attendance.app-main-6:/layout/activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_button_primary.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_button_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_tab_item_unselected.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_tab_item_unselected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_tab_bar.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_tab_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_chip_light_blue.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_chip_light_blue.xml"
+    },
+    {
+        "merged": "com.uni.attendance.app-debug-4:/layout_activity_timetable.xml.flat",
+        "source": "com.uni.attendance.app-main-6:/layout/activity_timetable.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\drawable_bg_card_rounded.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\drawable\\bg_card_rounded.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-debug-4:\\layout_dialog_open_session.xml.flat",
+        "source": "C:\\Users\\Tuminh\\scoop\\persist\\gradle\\.gradle\\daemon\\8.7\\com.uni.attendance.app-main-6:\\layout\\dialog_open_session.xml"
+    }
+]

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/canvas_bg"
+    android:orientation="vertical">
+
+    <!-- Header bar chuẩn theo ảnh -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/card_bg"
+        android:elevation="1dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <!-- Nút quay lại tròn thanh lịch -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Quay lại"
+            android:src="@drawable/ic_chevron_left" />
+
+        <!-- Tiêu đề Thời khóa biểu ở giữa -->
+        <TextView
+            android:id="@+id/titleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Thời khóa biểu"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Các nút thao tác bên phải: Tóm tắt TKB và Nhập lớp JSON (Giảng viên) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnSummary"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Tóm tắt thời khóa biểu"
+                android:src="@drawable/ic_history" />
+
+            <ImageButton
+                android:id="@+id/btnJsonImport"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Nhập lớp học phần bằng JSON"
+                android:src="@drawable/ic_code_json" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Khối thanh chọn tuần (Calendar Week Strip) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/bg_card_rounded"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Hàng ngày trong tuần (T2 đến CN) kèm 2 nút mũi tên điều hướng tuần -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Mũi tên tuần trước -->
+            <ImageButton
+                android:id="@+id/btnPrevWeek"
+                android:layout_width="28dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Tuần trước"
+                android:src="@drawable/ic_chevron_left" />
+
+            <!-- 7 cột ngày trong tuần -->
+            <LinearLayout
+                android:id="@+id/weekContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- T2 (Thứ 2) -->
+                <LinearLayout
+                    android:id="@+id/colMon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblMon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T2"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Viên thuốc highlight ngày -->
+                    <LinearLayout
+                        android:id="@+id/pillMon"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateMon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotMon"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntMon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- T3 (Thứ 3) -->
+                <LinearLayout
+                    android:id="@+id/colTue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblTue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T3"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/pillTue"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateTue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotTue"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntTue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- T4 (Thứ 4) -->
+                <LinearLayout
+                    android:id="@+id/colWed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblWed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T4"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/pillWed"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateWed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotWed"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntWed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- T5 (Thứ 5) -->
+                <LinearLayout
+                    android:id="@+id/colThu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblThu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T5"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/pillThu"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateThu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotThu"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntThu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- T6 (Thứ 6) -->
+                <LinearLayout
+                    android:id="@+id/colFri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblFri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T6"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/pillFri"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateFri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotFri"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntFri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- T7 (Thứ 7) -->
+                <LinearLayout
+                    android:id="@+id/colSat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblSat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T7"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/pillSat"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateSat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotSat"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntSat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- CN (Chủ Nhật) -->
+                <LinearLayout
+                    android:id="@+id/colSun"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lblSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CN"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/pillSun"
+                        android:layout_width="32dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_pill_unselected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dateSun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/dotSun"
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/shape_dot_orange"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/cntSun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="11sp"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Mũi tên tuần sau -->
+            <ImageButton
+                android:id="@+id/btnNextWeek"
+                android:layout_width="28dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Tuần sau"
+                android:src="@drawable/ic_chevron_right" />
+        </LinearLayout>
+
+        <!-- Liên kết phụ: danh sách lớp học -->
+        <TextView
+            android:id="@+id/btnExtraLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="@color/brand_primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Danh sách thẻ môn học của ngày đã chọn -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/scheduleListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Trạng thái trống (khi ngày không có lịch) -->
+        <LinearLayout
+            android:id="@+id/emptyScheduleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_calendar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Không có lịch học trong ngày này!"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/emptyScheduleHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="Lịch học được tự động cập nhật theo các lớp học phần từ giảng viên."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnEmptyImportJson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_button_primary"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="Nhập lớp học phần bằng JSON"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
