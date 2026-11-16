@@ -53,11 +53,20 @@ public final class Models {
     // ---------- Lớp học phần ----------
     public static class CreateClassRequest {
         public String code, name, semester;
+        public Integer dayOfWeek;
+        public String shift, room;
 
         public CreateClassRequest(String code, String name, String semester) {
+            this(code, name, semester, null, null, null);
+        }
+
+        public CreateClassRequest(String code, String name, String semester, Integer dayOfWeek, String shift, String room) {
             this.code = code;
             this.name = name;
             this.semester = semester;
+            this.dayOfWeek = dayOfWeek;
+            this.shift = shift;
+            this.room = room;
         }
     }
 

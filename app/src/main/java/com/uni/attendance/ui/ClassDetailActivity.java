@@ -142,8 +142,21 @@ public class ClassDetailActivity extends AppCompatActivity {
         } else {
             showingReport = false;
             reportButton.setText("Báo cáo chuyên cần");
-            infoView.setText((info.semester == null || info.semester.isEmpty() ? "" : info.semester + " - ")
-                    + detail.students.size() + " sinh viên. Nhấn giữ một dòng để xóa khỏi lớp");
+            StringBuilder scheduleInfo = new StringBuilder();
+            if (info.dayOfWeek != null) {
+                scheduleInfo.append(info.dayOfWeek == 8 ? "Chủ nhật" : ("Thứ " + info.dayOfWeek)).append(" • ");
+            }
+            if (info.shift != null && !info.shift.isEmpty()) {
+                scheduleInfo.append(info.shift).append(" • ");
+            }
+            if (info.room != null && !info.room.isEmpty()) {
+                scheduleInfo.append("Phòng ").append(info.room).append("\n");
+            }
+            if (info.semester != null && !info.semester.isEmpty()) {
+                scheduleInfo.append(info.semester).append(" • ");
+            }
+            scheduleInfo.append(detail.students.size()).append(" sinh viên. Nhấn giữ một dòng để xóa khỏi lớp");
+            infoView.setText(scheduleInfo.toString());
             for (Models.StudentView s : detail.students) {
                 lines.add(s.name + " (" + s.studentId + ")");
             }
@@ -256,15 +269,15 @@ public class ClassDetailActivity extends AppCompatActivity {
     }
 
     private void confirmDeleteClass() {
-        if (detail == null) return;
+        if (detail == null || detail.info == null) return;
         new AlertDialog.Builder(this)
                 .setTitle("Xóa lớp học phần")
-                .setMessage("Bạn có chắc chắn muốn xóa lớp " + detail.clazz.code + " (" + detail.clazz.name + ") không?\n\nLưu ý: Mọi buổi điểm danh và danh sách sinh viên thuộc lớp này sẽ bị xóa.")
+                .setMessage("Bạn có chắc chắn muốn xóa lớp " + detail.info.code + " (" + detail.info.name + ") không?\n\nLưu ý: Mọi buổi điểm danh và danh sách sinh viên thuộc lớp này sẽ bị xóa.")
                 .setPositiveButton("Xóa", (dialog, which) -> {
                     api.deleteClass(classId).enqueue(new ApiCallback<Void>(this) {
                         @Override
                         public void onSuccess(Void result) {
-                            toast("Đã xóa lớp " + detail.clazz.code);
+                            toast("Đã xóa lớp " + detail.info.code);
                             finish();
                         }
 
@@ -274,7 +287,7 @@ public class ClassDetailActivity extends AppCompatActivity {
                                 api.deleteClassPost(classId).enqueue(new ApiCallback<Void>(ClassDetailActivity.this) {
                                     @Override
                                     public void onSuccess(Void result) {
-                                        toast("Đã xóa lớp " + detail.clazz.code);
+                                        toast("Đã xóa lớp " + detail.info.code);
                                         finish();
                                     }
 

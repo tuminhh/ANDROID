@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -125,8 +127,17 @@ public class ClassListActivity extends AppCompatActivity {
                 List<String> lines = new ArrayList<>();
                 for (Models.ClassView c : classes) {
                     StringBuilder sb = new StringBuilder(c.code).append(" - ").append(c.name).append('\n');
-                    if (c.semester != null && !c.semester.isEmpty()) sb.append(c.semester).append(" - ");
-                    if (!teacher) sb.append("GV ").append(c.teacherName).append(" - ");
+                    if (c.dayOfWeek != null) {
+                        sb.append(c.dayOfWeek == 8 ? "Chủ nhật" : ("Thứ " + c.dayOfWeek)).append(" • ");
+                    }
+                    if (c.shift != null && !c.shift.isEmpty()) {
+                        sb.append(c.shift).append(" • ");
+                    }
+                    if (c.room != null && !c.room.isEmpty()) {
+                        sb.append("Phòng ").append(c.room).append(" • ");
+                    }
+                    if (c.semester != null && !c.semester.isEmpty()) sb.append(c.semester).append(" • ");
+                    if (!teacher) sb.append("GV ").append(c.teacherName).append(" • ");
                     sb.append(c.studentCount).append(" sinh viên");
                     lines.add(sb.toString());
                 }
@@ -145,41 +156,87 @@ public class ClassListActivity extends AppCompatActivity {
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_create_class, null);
         EditText codeInput = view.findViewById(R.id.codeInput);
         EditText nameInput = view.findViewById(R.id.nameInput);
+        Spinner spinnerDayOfWeek = view.findViewById(R.id.spinnerDayOfWeek);
+        AutoCompleteTextView shiftInput = view.findViewById(R.id.shiftInput);
+        EditText roomInput = view.findViewById(R.id.roomInput);
         EditText semesterInput = view.findViewById(R.id.semesterInput);
 
+        String[] days = new String[]{
+                "Thứ Hai (Thứ 2)",
+                "Thứ Ba (Thứ 3)",
+                "Thứ Tư (Thứ 4)",
+                "Thứ Năm (Thứ 5)",
+                "Thứ Sáu (Thứ 6)",
+                "Thứ Bảy (Thứ 7)",
+                "Chủ Nhật"
+        };
+        ArrayAdapter<String> dayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, days);
+        spinnerDayOfWeek.setAdapter(dayAdapter);
+
+        String[] shiftSuggestions = new String[]{
+                "Buổi sáng - Tiết 1,2,3 (07h00 - 09h25)",
+                "Buổi sáng - Tiết 4,5,6 (09h35 - 12h00)",
+                "Buổi chiều - Tiết 7,8,9 (12h30 - 14h55)",
+                "Buổi chiều - Tiết 10,11,12 (15h05 - 17h30)",
+                "Buổi tối - Tiết 13,14,15 (18h00 - 20h25)"
+        };
+        ArrayAdapter<String> shiftAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, shiftSuggestions);
+        shiftInput.setAdapter(shiftAdapter);
+
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Tạo lớp học phần")
+                .setTitle("Tạo lớp học phần mới")
                 .setView(view)
-                .setPositiveButton("Tạo", null)
+                .setPositiveButton("Tạo lớp", null)
                 .setNegativeButton("Hủy", null)
                 .create();
-        // Ghi đè nút "Tạo" để dữ liệu sai thì hộp thoại không tự đóng
+
+        // Ghi đè nút "Tạo lớp" để dữ liệu sai thì hộp thoại không tự đóng
         dialog.setOnShowListener(d -> dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(b -> {
             String code = codeInput.getText().toString().trim();
             String name = nameInput.getText().toString().trim();
+            int dayOfWeek = spinnerDayOfWeek.getSelectedItemPosition() + 2; // 2=T2 ... 8=CN
+            String shift = shiftInput.getText().toString().trim();
+            String room = roomInput.getText().toString().trim();
             String semester = semesterInput.getText().toString().trim();
+
             if (!CODE_PATTERN.matcher(code).matches()) {
                 toast("Mã lớp chỉ gồm chữ, số, dấu . _ - và dài 2-32 ký tự (không có dấu cách)");
                 return;
             }
             if (name.isEmpty()) {
-                toast("Nhập tên môn học");
+                toast("Vui lòng nhập tên môn học");
                 return;
             }
-            dialog.dismiss();
-            api.createClass(new Models.CreateClassRequest(code, name, semester.isEmpty() ? null : semester))
-                    .enqueue(new ApiCallback<Models.ClassView>(this) {
-                        @Override
-                        public void onSuccess(Models.ClassView created) {
-                            toast("Đã tạo lớp " + created.code + ". Hãy thêm danh sách sinh viên");
-                            openDetail(created.id); // vào luôn để thêm sinh viên
-                        }
+            if (shift.isEmpty()) {
+                toast("Vui lòng nhập hoặc chọn tiết/ca học");
+                return;
+            }
+            if (room.isEmpty()) {
+                toast("Vui lòng nhập phòng học");
+                return;
+            }
 
-                        @Override
-                        public void onError(String message, String code, int http) {
-                            toast(message);
-                        }
-                    });
+            dialog.dismiss();
+            Models.CreateClassRequest req = new Models.CreateClassRequest(
+                    code,
+                    name,
+                    semester.isEmpty() ? null : semester,
+                    dayOfWeek,
+                    shift,
+                    room
+            );
+            api.createClass(req).enqueue(new ApiCallback<Models.ClassView>(this) {
+                @Override
+                public void onSuccess(Models.ClassView created) {
+                    toast("Đã tạo lớp " + created.code + ". Hãy thêm danh sách sinh viên");
+                    openDetail(created.id); // vào luôn để thêm sinh viên
+                }
+
+                @Override
+                public void onError(String message, String code, int http) {
+                    toast(message);
+                }
+            });
         }));
         dialog.show();
     }
@@ -254,7 +311,7 @@ public class ClassListActivity extends AppCompatActivity {
         new com.uni.attendance.util.TimetableStore(this).saveAll(tItems);
 
         for (Models.BatchClassImportItem item : items) {
-            api.createClass(new Models.CreateClassRequest(item.code, item.name, item.semester))
+            api.createClass(new Models.CreateClassRequest(item.code, item.name, item.semester, item.dayOfWeek, item.shift, item.room))
                     .enqueue(new ApiCallback<Models.ClassView>(this) {
                         @Override
                         public void onSuccess(Models.ClassView created) {

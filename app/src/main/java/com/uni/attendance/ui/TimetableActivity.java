@@ -367,7 +367,7 @@ public class TimetableActivity extends AppCompatActivity {
         updateWeekUi();
 
         for (Models.BatchClassImportItem item : items) {
-            api.createClass(new Models.CreateClassRequest(item.code, item.name, item.semester))
+            api.createClass(new Models.CreateClassRequest(item.code, item.name, item.semester, item.dayOfWeek, item.shift, item.room))
                     .enqueue(new ApiCallback<Models.ClassView>(this) {
                         @Override
                         public void onSuccess(Models.ClassView created) {
