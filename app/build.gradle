@@ -4,9 +4,9 @@ plugins {
 
 // Địa chỉ backend khi chạy debug. Máy ảo Android gọi máy tính qua 10.0.2.2.
 // Đổi bằng: gradlew assembleDebug -PbaseUrl=http://192.168.1.10:8080/
-def debugBaseUrl = (project.findProperty('baseUrl') ?: 'http://192.168.0.104:8080/').toString()
+def debugBaseUrl = (project.findProperty('baseUrl') ?: 'https://smart-attendance-api-a8sw.onrender.com/').toString()
 // Bản release bắt buộc HTTPS: đặt bằng -PreleaseBaseUrl=https://ten-mien-cua-ban/
-def releaseBaseUrl = (project.findProperty('releaseBaseUrl') ?: 'https://doi-ten-mien.example.com/').toString()
+def releaseBaseUrl = (project.findProperty('releaseBaseUrl') ?: 'https://smart-attendance-api-a8sw.onrender.com/').toString()
 
 android {
     namespace 'com.uni.attendance'
